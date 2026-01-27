@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61E3D4572ED0175B00FF787F /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4562ED0175B00FF787F /* Meeting.swift */; };
+		61E3D4592ED0178A00FF787F /* MeetingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4582ED0178A00FF787F /* MeetingMode.swift */; };
+		61E3D45B2ED017A400FF787F /* MeetingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D45A2ED017A400FF787F /* MeetingSource.swift */; };
+		61E3D45D2ED017CA00FF787F /* MeetingNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D45C2ED017CA00FF787F /* MeetingNotes.swift */; };
+		61E3D45F2ED017F100FF787F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D45E2ED017F100FF787F /* AppSettings.swift */; };
+		61E3D4612ED02D9C00FF787F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4602ED02D9C00FF787F /* Extensions.swift */; };
+		61E3D4632ED02DBD00FF787F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4622ED02DBD00FF787F /* Constants.swift */; };
+		61E3D4652ED02DDB00FF787F /* ZoomURLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4642ED02DDB00FF787F /* ZoomURLParser.swift */; };
+		61E3D4672ED02F5900FF787F /* MeetingScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4662ED02F5900FF787F /* MeetingScheduler.swift */; };
+		61E3D4692ED02F9300FF787F /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4682ED02F9300FF787F /* KeychainManager.swift */; };
+		61E3D46B2ED02FD000FF787F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D46A2ED02FD000FF787F /* NotificationManager.swift */; };
+		61E3D46D2ED104E800FF787F /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D46C2ED104E800FF787F /* PersistenceService.swift */; };
+		61E3D46F2ED1050400FF787F /* ZoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D46E2ED1050400FF787F /* ZoomService.swift */; };
+		61E3D4712ED1051A00FF787F /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4702ED1051A00FF787F /* CalendarService.swift */; };
+		61E3D4732ED1053C00FF787F /* GoogleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4722ED1053C00FF787F /* GoogleCalendarService.swift */; };
+		61E3D4752ED1055700FF787F /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4742ED1055700FF787F /* AudioCaptureService.swift */; };
+		61E3D4772ED1058400FF787F /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4762ED1058400FF787F /* OpenAIService.swift */; };
+		61E3D4792ED1062D00FF787F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4782ED1062D00FF787F /* SettingsViewModel.swift */; };
+		61E3D47B2ED1064800FF787F /* CalendarSyncViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D47A2ED1064800FF787F /* CalendarSyncViewModel.swift */; };
+		61E3D47D2ED1066100FF787F /* MeetingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D47C2ED1066100FF787F /* MeetingDetailViewModel.swift */; };
+		61E3D47F2ED1069500FF787F /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D47E2ED1069500FF787F /* MeetingListViewModel.swift */; };
+		61E3D4812ED1091B00FF787F /* ModeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4802ED1091B00FF787F /* ModeBadge.swift */; };
+		61E3D4832ED1093700FF787F /* SourceBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4822ED1093700FF787F /* SourceBadge.swift */; };
+		61E3D4852ED1095000FF787F /* NoteStatusIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4842ED1095000FF787F /* NoteStatusIndicator.swift */; };
+		61E3D4872ED1096400FF787F /* MeetingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4862ED1096400FF787F /* MeetingRow.swift */; };
+		61E3D4892ED10A2700FF787F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4882ED10A2700FF787F /* MainView.swift */; };
+		61E3D48B2ED10A3F00FF787F /* ManualMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D48A2ED10A3F00FF787F /* ManualMeetingView.swift */; };
+		61E3D48D2ED10A5300FF787F /* MeetingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D48C2ED10A5300FF787F /* MeetingListView.swift */; };
+		61E3D48F2ED10C6600FF787F /* MeetingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D48E2ED10C6600FF787F /* MeetingDetailView.swift */; };
+		61E3D4912ED10CC800FF787F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4902ED10CC800FF787F /* SettingsView.swift */; };
+		61E3D4932ED10EE600FF787F /* ZoomAutomationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4922ED10EE600FF787F /* ZoomAutomationService.swift */; };
+		61E3D4952ED25E2700FF787F /* LiveAssistantMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4942ED25E2700FF787F /* LiveAssistantMessage.swift */; };
+		61E3D4972ED25E4800FF787F /* ScreenCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4962ED25E4800FF787F /* ScreenCaptureService.swift */; };
+		61E3D4992ED25E6900FF787F /* LiveAudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4982ED25E6900FF787F /* LiveAudioCaptureService.swift */; };
+		61E3D49B2ED25E9200FF787F /* LiveAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D49A2ED25E9200FF787F /* LiveAssistantService.swift */; };
+		61E3D49D2ED25EB900FF787F /* LiveAssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D49C2ED25EB900FF787F /* LiveAssistantViewModel.swift */; };
+		61E3D4A12ED2612B00FF787F /* DEVELOPER_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 61E3D4A02ED2612B00FF787F /* DEVELOPER_NOTES.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		61E3D4392ED0061400FF787F /* FlowMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E3D4562ED0175B00FF787F /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		61E3D4582ED0178A00FF787F /* MeetingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingMode.swift; sourceTree = "<group>"; };
+		61E3D45A2ED017A400FF787F /* MeetingSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSource.swift; sourceTree = "<group>"; };
+		61E3D45C2ED017CA00FF787F /* MeetingNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingNotes.swift; sourceTree = "<group>"; };
+		61E3D45E2ED017F100FF787F /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		61E3D4602ED02D9C00FF787F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		61E3D4622ED02DBD00FF787F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		61E3D4642ED02DDB00FF787F /* ZoomURLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomURLParser.swift; sourceTree = "<group>"; };
+		61E3D4662ED02F5900FF787F /* MeetingScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingScheduler.swift; sourceTree = "<group>"; };
+		61E3D4682ED02F9300FF787F /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		61E3D46A2ED02FD000FF787F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		61E3D46C2ED104E800FF787F /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		61E3D46E2ED1050400FF787F /* ZoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomService.swift; sourceTree = "<group>"; };
+		61E3D4702ED1051A00FF787F /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		61E3D4722ED1053C00FF787F /* GoogleCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarService.swift; sourceTree = "<group>"; };
+		61E3D4742ED1055700FF787F /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
+		61E3D4762ED1058400FF787F /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		61E3D4782ED1062D00FF787F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		61E3D47A2ED1064800FF787F /* CalendarSyncViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSyncViewModel.swift; sourceTree = "<group>"; };
+		61E3D47C2ED1066100FF787F /* MeetingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewModel.swift; sourceTree = "<group>"; };
+		61E3D47E2ED1069500FF787F /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
+		61E3D4802ED1091B00FF787F /* ModeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeBadge.swift; sourceTree = "<group>"; };
+		61E3D4822ED1093700FF787F /* SourceBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceBadge.swift; sourceTree = "<group>"; };
+		61E3D4842ED1095000FF787F /* NoteStatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStatusIndicator.swift; sourceTree = "<group>"; };
+		61E3D4862ED1096400FF787F /* MeetingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRow.swift; sourceTree = "<group>"; };
+		61E3D4882ED10A2700FF787F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		61E3D48A2ED10A3F00FF787F /* ManualMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMeetingView.swift; sourceTree = "<group>"; };
+		61E3D48C2ED10A5300FF787F /* MeetingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListView.swift; sourceTree = "<group>"; };
+		61E3D48E2ED10C6600FF787F /* MeetingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailView.swift; sourceTree = "<group>"; };
+		61E3D4902ED10CC800FF787F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		61E3D4922ED10EE600FF787F /* ZoomAutomationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAutomationService.swift; sourceTree = "<group>"; };
+		61E3D4942ED25E2700FF787F /* LiveAssistantMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAssistantMessage.swift; sourceTree = "<group>"; };
+		61E3D4962ED25E4800FF787F /* ScreenCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureService.swift; sourceTree = "<group>"; };
+		61E3D4982ED25E6900FF787F /* LiveAudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAudioCaptureService.swift; sourceTree = "<group>"; };
+		61E3D49A2ED25E9200FF787F /* LiveAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAssistantService.swift; sourceTree = "<group>"; };
+		61E3D49C2ED25EB900FF787F /* LiveAssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAssistantViewModel.swift; sourceTree = "<group>"; };
+		61E3D4A02ED2612B00FF787F /* DEVELOPER_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DEVELOPER_NOTES.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		61E3D43B2ED0061400FF787F /* ZoomAutoJoiner */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ZoomAutoJoiner;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61E3D4362ED0061400FF787F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61E3D4302ED0061400FF787F = {
+			isa = PBXGroup;
+			children = (
+				61E3D4A02ED2612B00FF787F /* DEVELOPER_NOTES.md */,
+				61E3D4512ED00C3900FF787F /* Utilities */,
+				61E3D4502ED00C3300FF787F /* Managers */,
+				61E3D44F2ED00C2C00FF787F /* Services */,
+				61E3D44D2ED00C1A00FF787F /* Views */,
+				61E3D44C2ED00C0F00FF787F /* ViewModels */,
+				61E3D44B2ED00C0800FF787F /* Models */,
+				61E3D43B2ED0061400FF787F /* ZoomAutoJoiner */,
+				61E3D43A2ED0061400FF787F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61E3D43A2ED0061400FF787F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D4392ED0061400FF787F /* FlowMeet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61E3D44B2ED00C0800FF787F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D4562ED0175B00FF787F /* Meeting.swift */,
+				61E3D4582ED0178A00FF787F /* MeetingMode.swift */,
+				61E3D45A2ED017A400FF787F /* MeetingSource.swift */,
+				61E3D45C2ED017CA00FF787F /* MeetingNotes.swift */,
+				61E3D45E2ED017F100FF787F /* AppSettings.swift */,
+				61E3D4942ED25E2700FF787F /* LiveAssistantMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		61E3D44C2ED00C0F00FF787F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D4782ED1062D00FF787F /* SettingsViewModel.swift */,
+				61E3D47A2ED1064800FF787F /* CalendarSyncViewModel.swift */,
+				61E3D47C2ED1066100FF787F /* MeetingDetailViewModel.swift */,
+				61E3D47E2ED1069500FF787F /* MeetingListViewModel.swift */,
+				61E3D49C2ED25EB900FF787F /* LiveAssistantViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		61E3D44D2ED00C1A00FF787F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D44E2ED00C2200FF787F /* Components */,
+				61E3D4882ED10A2700FF787F /* MainView.swift */,
+				61E3D48A2ED10A3F00FF787F /* ManualMeetingView.swift */,
+				61E3D48C2ED10A5300FF787F /* MeetingListView.swift */,
+				61E3D48E2ED10C6600FF787F /* MeetingDetailView.swift */,
+				61E3D4902ED10CC800FF787F /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		61E3D44E2ED00C2200FF787F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D4802ED1091B00FF787F /* ModeBadge.swift */,
+				61E3D4822ED1093700FF787F /* SourceBadge.swift */,
+				61E3D4842ED1095000FF787F /* NoteStatusIndicator.swift */,
+				61E3D4862ED1096400FF787F /* MeetingRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		61E3D44F2ED00C2C00FF787F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D46C2ED104E800FF787F /* PersistenceService.swift */,
+				61E3D46E2ED1050400FF787F /* ZoomService.swift */,
+				61E3D4702ED1051A00FF787F /* CalendarService.swift */,
+				61E3D4722ED1053C00FF787F /* GoogleCalendarService.swift */,
+				61E3D4742ED1055700FF787F /* AudioCaptureService.swift */,
+				61E3D4762ED1058400FF787F /* OpenAIService.swift */,
+				61E3D4922ED10EE600FF787F /* ZoomAutomationService.swift */,
+				61E3D4962ED25E4800FF787F /* ScreenCaptureService.swift */,
+				61E3D4982ED25E6900FF787F /* LiveAudioCaptureService.swift */,
+				61E3D49A2ED25E9200FF787F /* LiveAssistantService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		61E3D4502ED00C3300FF787F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D4662ED02F5900FF787F /* MeetingScheduler.swift */,
+				61E3D4682ED02F9300FF787F /* KeychainManager.swift */,
+				61E3D46A2ED02FD000FF787F /* NotificationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		61E3D4512ED00C3900FF787F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				61E3D4602ED02D9C00FF787F /* Extensions.swift */,
+				61E3D4622ED02DBD00FF787F /* Constants.swift */,
+				61E3D4642ED02DDB00FF787F /* ZoomURLParser.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61E3D4382ED0061400FF787F /* FlowMeet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61E3D4442ED0061600FF787F /* Build configuration list for PBXNativeTarget "FlowMeet" */;
+			buildPhases = (
+				61E3D4352ED0061400FF787F /* Sources */,
+				61E3D4362ED0061400FF787F /* Frameworks */,
+				61E3D4372ED0061400FF787F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				61E3D43B2ED0061400FF787F /* ZoomAutoJoiner */,
+			);
+			name = FlowMeet;
+			packageProductDependencies = (
+			);
+			productName = ZoomAutoJoiner;
+			productReference = 61E3D4392ED0061400FF787F /* FlowMeet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61E3D4312ED0061400FF787F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					61E3D4382ED0061400FF787F = {
+						CreatedOnToolsVersion = 26.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 61E3D4342ED0061400FF787F /* Build configuration list for PBXProject "FlowMeet" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61E3D4302ED0061400FF787F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 61E3D43A2ED0061400FF787F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61E3D4382ED0061400FF787F /* FlowMeet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61E3D4372ED0061400FF787F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E3D4A12ED2612B00FF787F /* DEVELOPER_NOTES.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61E3D4352ED0061400FF787F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E3D4892ED10A2700FF787F /* MainView.swift in Sources */,
+				61E3D4672ED02F5900FF787F /* MeetingScheduler.swift in Sources */,
+				61E3D4992ED25E6900FF787F /* LiveAudioCaptureService.swift in Sources */,
+				61E3D4652ED02DDB00FF787F /* ZoomURLParser.swift in Sources */,
+				61E3D4572ED0175B00FF787F /* Meeting.swift in Sources */,
+				61E3D4732ED1053C00FF787F /* GoogleCalendarService.swift in Sources */,
+				61E3D48F2ED10C6600FF787F /* MeetingDetailView.swift in Sources */,
+				61E3D4772ED1058400FF787F /* OpenAIService.swift in Sources */,
+				61E3D46F2ED1050400FF787F /* ZoomService.swift in Sources */,
+				61E3D45F2ED017F100FF787F /* AppSettings.swift in Sources */,
+				61E3D48B2ED10A3F00FF787F /* ManualMeetingView.swift in Sources */,
+				61E3D4872ED1096400FF787F /* MeetingRow.swift in Sources */,
+				61E3D4612ED02D9C00FF787F /* Extensions.swift in Sources */,
+				61E3D46B2ED02FD000FF787F /* NotificationManager.swift in Sources */,
+				61E3D4812ED1091B00FF787F /* ModeBadge.swift in Sources */,
+				61E3D46D2ED104E800FF787F /* PersistenceService.swift in Sources */,
+				61E3D4972ED25E4800FF787F /* ScreenCaptureService.swift in Sources */,
+				61E3D4592ED0178A00FF787F /* MeetingMode.swift in Sources */,
+				61E3D47B2ED1064800FF787F /* CalendarSyncViewModel.swift in Sources */,
+				61E3D47D2ED1066100FF787F /* MeetingDetailViewModel.swift in Sources */,
+				61E3D49B2ED25E9200FF787F /* LiveAssistantService.swift in Sources */,
+				61E3D4692ED02F9300FF787F /* KeychainManager.swift in Sources */,
+				61E3D47F2ED1069500FF787F /* MeetingListViewModel.swift in Sources */,
+				61E3D4852ED1095000FF787F /* NoteStatusIndicator.swift in Sources */,
+				61E3D4712ED1051A00FF787F /* CalendarService.swift in Sources */,
+				61E3D48D2ED10A5300FF787F /* MeetingListView.swift in Sources */,
+				61E3D4932ED10EE600FF787F /* ZoomAutomationService.swift in Sources */,
+				61E3D4912ED10CC800FF787F /* SettingsView.swift in Sources */,
+				61E3D4792ED1062D00FF787F /* SettingsViewModel.swift in Sources */,
+				61E3D45B2ED017A400FF787F /* MeetingSource.swift in Sources */,
+				61E3D4752ED1055700FF787F /* AudioCaptureService.swift in Sources */,
+				61E3D45D2ED017CA00FF787F /* MeetingNotes.swift in Sources */,
+				61E3D4632ED02DBD00FF787F /* Constants.swift in Sources */,
+				61E3D4952ED25E2700FF787F /* LiveAssistantMessage.swift in Sources */,
+				61E3D4832ED1093700FF787F /* SourceBadge.swift in Sources */,
+				61E3D49D2ED25EB900FF787F /* LiveAssistantViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		61E3D4422ED0061600FF787F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZFSZC89VHH;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		61E3D4432ED0061600FF787F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ZFSZC89VHH;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		61E3D4452ED0061600FF787F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZFSZC89VHH;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FlowMeet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "We need to access calendars to gain access to find and join meetings";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access microphone to record meeting audio for notes";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaikumartrilokeshwar.FlowMeet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		61E3D4462ED0061600FF787F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZFSZC89VHH;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = FlowMeet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "We need to access calendars to gain access to find and join meetings";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access microphone to record meeting audio for notes";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaikumartrilokeshwar.FlowMeet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61E3D4342ED0061400FF787F /* Build configuration list for PBXProject "FlowMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E3D4422ED0061600FF787F /* Debug */,
+				61E3D4432ED0061600FF787F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61E3D4442ED0061600FF787F /* Build configuration list for PBXNativeTarget "FlowMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E3D4452ED0061600FF787F /* Debug */,
+				61E3D4462ED0061600FF787F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61E3D4312ED0061400FF787F /* Project object */;
+}
