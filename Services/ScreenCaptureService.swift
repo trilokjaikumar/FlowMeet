@@ -1,4 +1,3 @@
-//
 //  ScreenCaptureService.swift
 //  ZoomAutoJoiner
 //
@@ -9,6 +8,7 @@ import Foundation
 import AppKit
 import Vision
 import Combine
+import ScreenCaptureKit
 
 class ScreenCaptureService: NSObject, ObservableObject {
     @Published var isCapturing = false
@@ -45,17 +45,35 @@ class ScreenCaptureService: NSObject, ObservableObject {
         guard let screen = NSScreen.main else { return }
         let displayID = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID ?? 0
         
-        // Capture screenshot
-        guard let image = CGDisplayCreateImage(displayID) else {
-            print("Failed to capture screen")
-            return
+        // Capture screenshot using ScreenCaptureKit
+        Task {
+            do {
+                let content = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: true)
+                
+                // Find the display matching our displayID
+                guard let display = content.displays.first(where: { $0.displayID == displayID }) else {
+                    print("Failed to find display")
+                    return
+                }
+                
+                let filter = SCContentFilter(display: display, excludingWindows: [])
+                let configuration = SCStreamConfiguration()
+                configuration.width = Int(screen.frame.width)
+                configuration.height = Int(screen.frame.height)
+                
+                let capturedImage = try await SCScreenshotManager.captureImage(contentFilter: filter, configuration: configuration)
+                
+                // Convert to NSImage for processing
+                let nsImage = NSImage(cgImage: capturedImage, size: NSSize(width: capturedImage.width, height: capturedImage.height))
+                
+                // Perform OCR on the main thread
+                await MainActor.run {
+                    self.performOCR(on: nsImage)
+                }
+            } catch {
+                print("Failed to capture screen: \(error)")
+            }
         }
-        
-        // Convert to NSImage for processing
-        let nsImage = NSImage(cgImage: image, size: NSSize(width: image.width, height: image.height))
-        
-        // Perform OCR
-        performOCR(on: nsImage)
     }
     
     private func performOCR(on image: NSImage) {
