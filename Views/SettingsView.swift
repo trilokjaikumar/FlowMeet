@@ -113,7 +113,7 @@ struct GeneralSettingsView: View {
         } message: {
             Text(MeetingMode.incognito.warningMessage)
         }
-        .onChange(of: viewModel.settings) { _ in
+        .onChange(of: viewModel.settings) { _, _ in
             viewModel.saveSettings()
         }
     }
@@ -164,7 +164,7 @@ struct CalendarSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .onChange(of: viewModel.settings) { _ in
+        .onChange(of: viewModel.settings) { _, _ in
             viewModel.saveSettings()
         }
     }
@@ -229,7 +229,7 @@ struct AudioSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .onChange(of: viewModel.settings) { _ in
+        .onChange(of: viewModel.settings) { _, _ in
             viewModel.saveSettings()
         }
     }
@@ -314,11 +314,11 @@ struct OpenAISettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .onChange(of: viewModel.tempOpenAIKey) { _ in
+        .onChange(of: viewModel.tempOpenAIKey) { _, _ in
             testResult = nil
             viewModel.saveSettings()
         }
-        .onChange(of: viewModel.settings) { _ in
+        .onChange(of: viewModel.settings) { _, _ in
             viewModel.saveSettings()
         }
     }

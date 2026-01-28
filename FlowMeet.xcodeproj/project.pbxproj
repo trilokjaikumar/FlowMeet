@@ -24,10 +24,8 @@
 		61E3D4732ED1053C00FF787F /* GoogleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4722ED1053C00FF787F /* GoogleCalendarService.swift */; };
 		61E3D4752ED1055700FF787F /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4742ED1055700FF787F /* AudioCaptureService.swift */; };
 		61E3D4772ED1058400FF787F /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4762ED1058400FF787F /* OpenAIService.swift */; };
-		61E3D4792ED1062D00FF787F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4782ED1062D00FF787F /* SettingsViewModel.swift */; };
 		61E3D47B2ED1064800FF787F /* CalendarSyncViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D47A2ED1064800FF787F /* CalendarSyncViewModel.swift */; };
 		61E3D47D2ED1066100FF787F /* MeetingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D47C2ED1066100FF787F /* MeetingDetailViewModel.swift */; };
-		61E3D47F2ED1069500FF787F /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D47E2ED1069500FF787F /* MeetingListViewModel.swift */; };
 		61E3D4812ED1091B00FF787F /* ModeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4802ED1091B00FF787F /* ModeBadge.swift */; };
 		61E3D4832ED1093700FF787F /* SourceBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4822ED1093700FF787F /* SourceBadge.swift */; };
 		61E3D4852ED1095000FF787F /* NoteStatusIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D4842ED1095000FF787F /* NoteStatusIndicator.swift */; };
@@ -44,6 +42,12 @@
 		61E3D49B2ED25E9200FF787F /* LiveAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D49A2ED25E9200FF787F /* LiveAssistantService.swift */; };
 		61E3D49D2ED25EB900FF787F /* LiveAssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3D49C2ED25EB900FF787F /* LiveAssistantViewModel.swift */; };
 		61E3D4A12ED2612B00FF787F /* DEVELOPER_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 61E3D4A02ED2612B00FF787F /* DEVELOPER_NOTES.md */; };
+		61EC90602F29A8AD006BF3B0 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61EC905F2F29A8AD006BF3B0 /* CoreAudio.framework */; };
+		61EC90622F29BAA2006BF3B0 /* FlowMeetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC90612F29BAA2006BF3B0 /* FlowMeetApp.swift */; };
+		61EC90672F2A7066006BF3B0 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC90642F2A7066006BF3B0 /* MeetingListViewModel.swift */; };
+		61EC90682F2A7066006BF3B0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC90652F2A7066006BF3B0 /* SettingsViewModel.swift */; };
+		61EC90692F2A7066006BF3B0 /* WebBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC90662F2A7066006BF3B0 /* WebBridge.swift */; };
+		61EC906A2F2A7066006BF3B0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC90632F2A7066006BF3B0 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,10 +69,8 @@
 		61E3D4722ED1053C00FF787F /* GoogleCalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarService.swift; sourceTree = "<group>"; };
 		61E3D4742ED1055700FF787F /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
 		61E3D4762ED1058400FF787F /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
-		61E3D4782ED1062D00FF787F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		61E3D47A2ED1064800FF787F /* CalendarSyncViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSyncViewModel.swift; sourceTree = "<group>"; };
 		61E3D47C2ED1066100FF787F /* MeetingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewModel.swift; sourceTree = "<group>"; };
-		61E3D47E2ED1069500FF787F /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
 		61E3D4802ED1091B00FF787F /* ModeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeBadge.swift; sourceTree = "<group>"; };
 		61E3D4822ED1093700FF787F /* SourceBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceBadge.swift; sourceTree = "<group>"; };
 		61E3D4842ED1095000FF787F /* NoteStatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStatusIndicator.swift; sourceTree = "<group>"; };
@@ -85,21 +87,20 @@
 		61E3D49A2ED25E9200FF787F /* LiveAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAssistantService.swift; sourceTree = "<group>"; };
 		61E3D49C2ED25EB900FF787F /* LiveAssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAssistantViewModel.swift; sourceTree = "<group>"; };
 		61E3D4A02ED2612B00FF787F /* DEVELOPER_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DEVELOPER_NOTES.md; sourceTree = "<group>"; };
+		61EC905F2F29A8AD006BF3B0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		61EC90612F29BAA2006BF3B0 /* FlowMeetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowMeetApp.swift; sourceTree = "<group>"; };
+		61EC90632F2A7066006BF3B0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		61EC90642F2A7066006BF3B0 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
+		61EC90652F2A7066006BF3B0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		61EC90662F2A7066006BF3B0 /* WebBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		61E3D43B2ED0061400FF787F /* ZoomAutoJoiner */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ZoomAutoJoiner;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		61E3D4362ED0061400FF787F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61EC90602F29A8AD006BF3B0 /* CoreAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +110,7 @@
 		61E3D4302ED0061400FF787F = {
 			isa = PBXGroup;
 			children = (
+				61EC90612F29BAA2006BF3B0 /* FlowMeetApp.swift */,
 				61E3D4A02ED2612B00FF787F /* DEVELOPER_NOTES.md */,
 				61E3D4512ED00C3900FF787F /* Utilities */,
 				61E3D4502ED00C3300FF787F /* Managers */,
@@ -116,7 +118,7 @@
 				61E3D44D2ED00C1A00FF787F /* Views */,
 				61E3D44C2ED00C0F00FF787F /* ViewModels */,
 				61E3D44B2ED00C0800FF787F /* Models */,
-				61E3D43B2ED0061400FF787F /* ZoomAutoJoiner */,
+				61EC905E2F29A8AD006BF3B0 /* Frameworks */,
 				61E3D43A2ED0061400FF787F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,10 +147,8 @@
 		61E3D44C2ED00C0F00FF787F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				61E3D4782ED1062D00FF787F /* SettingsViewModel.swift */,
 				61E3D47A2ED1064800FF787F /* CalendarSyncViewModel.swift */,
 				61E3D47C2ED1066100FF787F /* MeetingDetailViewModel.swift */,
-				61E3D47E2ED1069500FF787F /* MeetingListViewModel.swift */,
 				61E3D49C2ED25EB900FF787F /* LiveAssistantViewModel.swift */,
 			);
 			path = ViewModels;
@@ -183,6 +183,10 @@
 			children = (
 				61E3D46C2ED104E800FF787F /* PersistenceService.swift */,
 				61E3D46E2ED1050400FF787F /* ZoomService.swift */,
+				61EC90632F2A7066006BF3B0 /* DashboardView.swift */,
+				61EC90642F2A7066006BF3B0 /* MeetingListViewModel.swift */,
+				61EC90652F2A7066006BF3B0 /* SettingsViewModel.swift */,
+				61EC90662F2A7066006BF3B0 /* WebBridge.swift */,
 				61E3D4702ED1051A00FF787F /* CalendarService.swift */,
 				61E3D4722ED1053C00FF787F /* GoogleCalendarService.swift */,
 				61E3D4742ED1055700FF787F /* AudioCaptureService.swift */,
@@ -215,6 +219,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		61EC905E2F29A8AD006BF3B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61EC905F2F29A8AD006BF3B0 /* CoreAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,9 +241,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				61E3D43B2ED0061400FF787F /* ZoomAutoJoiner */,
 			);
 			name = FlowMeet;
 			packageProductDependencies = (
@@ -305,6 +314,7 @@
 				61E3D4612ED02D9C00FF787F /* Extensions.swift in Sources */,
 				61E3D46B2ED02FD000FF787F /* NotificationManager.swift in Sources */,
 				61E3D4812ED1091B00FF787F /* ModeBadge.swift in Sources */,
+				61EC90622F29BAA2006BF3B0 /* FlowMeetApp.swift in Sources */,
 				61E3D46D2ED104E800FF787F /* PersistenceService.swift in Sources */,
 				61E3D4972ED25E4800FF787F /* ScreenCaptureService.swift in Sources */,
 				61E3D4592ED0178A00FF787F /* MeetingMode.swift in Sources */,
@@ -312,13 +322,15 @@
 				61E3D47D2ED1066100FF787F /* MeetingDetailViewModel.swift in Sources */,
 				61E3D49B2ED25E9200FF787F /* LiveAssistantService.swift in Sources */,
 				61E3D4692ED02F9300FF787F /* KeychainManager.swift in Sources */,
-				61E3D47F2ED1069500FF787F /* MeetingListViewModel.swift in Sources */,
 				61E3D4852ED1095000FF787F /* NoteStatusIndicator.swift in Sources */,
+				61EC90672F2A7066006BF3B0 /* MeetingListViewModel.swift in Sources */,
+				61EC90682F2A7066006BF3B0 /* SettingsViewModel.swift in Sources */,
+				61EC90692F2A7066006BF3B0 /* WebBridge.swift in Sources */,
+				61EC906A2F2A7066006BF3B0 /* DashboardView.swift in Sources */,
 				61E3D4712ED1051A00FF787F /* CalendarService.swift in Sources */,
 				61E3D48D2ED10A5300FF787F /* MeetingListView.swift in Sources */,
 				61E3D4932ED10EE600FF787F /* ZoomAutomationService.swift in Sources */,
 				61E3D4912ED10CC800FF787F /* SettingsView.swift in Sources */,
-				61E3D4792ED1062D00FF787F /* SettingsViewModel.swift in Sources */,
 				61E3D45B2ED017A400FF787F /* MeetingSource.swift in Sources */,
 				61E3D4752ED1055700FF787F /* AudioCaptureService.swift in Sources */,
 				61E3D45D2ED017CA00FF787F /* MeetingNotes.swift in Sources */,

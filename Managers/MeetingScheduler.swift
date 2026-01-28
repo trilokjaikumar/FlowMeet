@@ -31,7 +31,7 @@ class MeetingScheduler: ObservableObject {
         }
         
         let timer = Timer(timeInterval: timeInterval, repeats: false) { [weak self] _ in
-            Task { @MainActor in
+            Task { @MainActor [weak self] in
                 print("⏰ Auto-joining meeting: \(meeting.title)")
                 onJoin(meeting)
                 self?.scheduledMeetings.removeValue(forKey: meeting.id)

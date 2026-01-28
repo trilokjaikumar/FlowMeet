@@ -22,7 +22,11 @@ class LiveAudioCaptureService: NSObject, ObservableObject {
     
     func requestPermissions() async -> Bool {
         // Request speech recognition permission
-        let speechStatus = await SFSpeechRecognizer.requestAuthorization()
+        let speechStatus = await withCheckedContinuation { continuation in
+            SFSpeechRecognizer.requestAuthorization { status in
+                continuation.resume(returning: status)
+            }
+        }
         guard speechStatus == .authorized else {
             print("❌ Speech recognition not authorized")
             return false

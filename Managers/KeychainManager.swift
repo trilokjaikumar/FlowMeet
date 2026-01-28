@@ -17,7 +17,7 @@ class KeychainManager {
         guard let data = value.data(using: .utf8) else { return false }
         
         // Delete old value first
-        delete(key: key)
+        _ = delete(key: key)
         
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,

@@ -78,7 +78,7 @@ struct ManualMeetingView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             VStack(alignment: .leading, spacing: 4) {
                                 TextField("Meeting ID (numbers only)", text: $zoomId)
-                                    .onChange(of: zoomId) { newValue in
+                                    .onChange(of: zoomId) { oldValue, newValue in
                                         // Filter to numbers only
                                         zoomId = newValue.filter { $0.isNumber }
                                     }

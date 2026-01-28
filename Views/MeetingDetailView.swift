@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppKit
+import UniformTypeIdentifiers
 
 struct MeetingDetailView: View {
     @EnvironmentObject var meetingListViewModel: MeetingListViewModel
@@ -160,7 +161,10 @@ struct MeetingDetailView: View {
         
         let markdown = exportAsMarkdown(meeting: meeting, notes: notes)
         let panel = NSSavePanel()
-        panel.allowedFileTypes = ["md", "txt"]
+        panel.allowedContentTypes = [
+            UTType(filenameExtension: "md")!,
+            .plainText
+        ]
         panel.nameFieldStringValue = "\(meeting.title).md"
         
         panel.begin { response in
