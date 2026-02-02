@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Dashboard } from './pages/Dashboard';
 import { Meeting } from './types';
-import { mockMeetings } from './data/mockData';
+import { mockMeetings } from './data/flowmeetData';
 import './styles/globals.css';
 
 function App() {
