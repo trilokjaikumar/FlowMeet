@@ -17,3 +17,9 @@ Tech Stack:
 Security:
 APIs are not hardcoded (runtime)
 
+
+## License & Usage
+
+This repository is **not open source**.
+
+The code is publicly visible for **educational and portfolio review purposes only**. No permission is granted to use, modify, deploy, or redistribute this code or any derivative works without explicit written consent.
