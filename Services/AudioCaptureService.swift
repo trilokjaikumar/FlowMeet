@@ -44,15 +44,15 @@ class AudioCaptureService: NSObject, ObservableObject {
             
             let inputNode = engine.inputNode
             let inputFormat = inputNode.outputFormat(forBus: 0)
-            
-            // Create audio file
+
+            // Create audio file matching the input node's actual format
             let settings: [String: Any] = [
                 AVFormatIDKey: kAudioFormatMPEG4AAC,
-                AVSampleRateKey: 44100.0,
-                AVNumberOfChannelsKey: 1,
+                AVSampleRateKey: inputFormat.sampleRate,
+                AVNumberOfChannelsKey: inputFormat.channelCount,
                 AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
             ]
-            
+
             audioFile = try AVAudioFile(
                 forWriting: recordingURL!,
                 settings: settings

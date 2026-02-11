@@ -21,8 +21,12 @@ class MeetingListViewModel: ObservableObject {
     }
     
     @Published var isLoading = false
-    
+
     private let calendarService = CalendarService()
+
+    init() {
+        loadMeetings()
+    }
     
     var upcomingMeetings: [Meeting] {
         meetings
@@ -56,21 +60,27 @@ class MeetingListViewModel: ObservableObject {
     
     func syncCalendars(settings: AppSettings) async {
         isLoading = true
-        
+
         if settings.appleCalendarEnabled {
-            let calendarMeetings = await calendarService.fetchUpcomingZoomMeetings(days: settings.calendarSyncDays)
-            
-            // Merge with existing meetings
-            for calendarMeeting in calendarMeetings {
-                if !meetings.contains(where: { $0.calendarEventId == calendarMeeting.calendarEventId }) {
-                    meetings.append(calendarMeeting)
+            // Request permission if not yet granted
+            let granted = await calendarService.requestAccess()
+            if granted {
+                let calendarMeetings = await calendarService.fetchUpcomingZoomMeetings(days: settings.calendarSyncDays)
+
+                // Merge with existing meetings
+                for calendarMeeting in calendarMeetings {
+                    if !meetings.contains(where: { $0.calendarEventId == calendarMeeting.calendarEventId }) {
+                        meetings.append(calendarMeeting)
+                    }
                 }
+            } else {
+                print("⚠️ Calendar access not granted — cannot sync Apple Calendar")
             }
         }
-        
+
         saveMeetings()
         isLoading = false
-        
+
         print("✅ Synced \(meetings.count) meetings")
     }
     
@@ -124,14 +134,18 @@ class MeetingListViewModel: ObservableObject {
     }
     
     private func saveMeetings() {
-        if let encoded = try? JSONEncoder().encode(meetings) {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        if let encoded = try? encoder.encode(meetings) {
             UserDefaults.standard.set(encoded, forKey: "meetings")
         }
     }
-    
+
     func loadMeetings() {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         if let data = UserDefaults.standard.data(forKey: "meetings"),
-           let decoded = try? JSONDecoder().decode([Meeting].self, from: data) {
+           let decoded = try? decoder.decode([Meeting].self, from: data) {
             meetings = decoded
         }
     }

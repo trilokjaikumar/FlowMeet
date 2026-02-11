@@ -38,7 +38,7 @@ class CalendarService: ObservableObject {
     }
     
     func fetchUpcomingZoomMeetings(days: Int) async -> [Meeting] {
-        guard authorizationStatus == .fullAccess || authorizationStatus == .writeOnly else {
+        guard authorizationStatus == .fullAccess || authorizationStatus == .authorized else {
             return []
         }
         

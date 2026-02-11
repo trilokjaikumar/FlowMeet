@@ -13,7 +13,7 @@ struct ModeBadge: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: icon)
-            Text(mode.rawValue)
+            Text(mode.displayName)
         }
         .font(.caption)
         .padding(.horizontal, 6)

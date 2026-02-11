@@ -8,8 +8,15 @@
 import Foundation
 
 enum MeetingMode: String, Codable, CaseIterable {
-    case incognito = "Incognito"
-    case transparent = "Transparent"
+    case incognito = "incognito"
+    case transparent = "transparent"
+
+    var displayName: String {
+        switch self {
+        case .incognito: return "Incognito"
+        case .transparent: return "Transparent"
+        }
+    }
     
     var description: String {
         switch self {

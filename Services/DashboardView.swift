@@ -139,31 +139,38 @@ struct DashboardView: View {
     }
     
     private func setupBridge() {
+        // Guard against duplicate setup
+        guard bridge.notificationObservers.isEmpty else { return }
+
         // Send initial data to dashboard
         bridge.sendSettings(settingsViewModel.settings)
         bridge.sendMeetings(meetingListViewModel.meetings)
-        
+        bridge.sendCalendarStatus(
+            appleGranted: settingsViewModel.settings.appleCalendarEnabled,
+            googleConnected: settingsViewModel.settings.googleCalendarEnabled
+        )
+
         // Set up observers to send updates
-        NotificationCenter.default.addObserver(
+        let obs1 = NotificationCenter.default.addObserver(
             forName: .settingsDidChange,
             object: nil,
             queue: .main
-        ) { _ in
+        ) { [bridge, settingsViewModel] _ in
             bridge.sendSettings(settingsViewModel.settings)
         }
-        
-        NotificationCenter.default.addObserver(
+
+        let obs2 = NotificationCenter.default.addObserver(
             forName: .meetingsDidUpdate,
             object: nil,
             queue: .main
-        ) { notification in
+        ) { [bridge] notification in
             if let meetings = notification.object as? [Meeting] {
                 bridge.sendMeetings(meetings)
             }
         }
-        
+
         // Handle settings updates from dashboard
-        NotificationCenter.default.addObserver(
+        let obs3 = NotificationCenter.default.addObserver(
             forName: .settingsUpdatedFromDashboard,
             object: nil,
             queue: .main
@@ -172,21 +179,84 @@ struct DashboardView: View {
                 updateSettingsFromDashboard(payload)
             }
         }
-        
+
         // Handle join meeting from dashboard
-        NotificationCenter.default.addObserver(
+        let obs4 = NotificationCenter.default.addObserver(
             forName: .joinMeetingFromDashboard,
             object: nil,
             queue: .main
-        ) { notification in
+        ) { [meetingListViewModel] notification in
             if let meetingId = notification.object as? String,
                let meeting = meetingListViewModel.meetings.first(where: { $0.id.uuidString == meetingId }) {
                 _ = ZoomService.shared.joinMeeting(meeting)
             }
         }
-        
+
+        // Handle sync calendar from dashboard
+        let obs5 = NotificationCenter.default.addObserver(
+            forName: .syncCalendarFromDashboard,
+            object: nil,
+            queue: .main
+        ) { [meetingListViewModel, settingsViewModel] _ in
+            Task {
+                await meetingListViewModel.syncCalendars(settings: settingsViewModel.settings)
+            }
+        }
+
+        // Handle add meeting from dashboard
+        let obs6 = NotificationCenter.default.addObserver(
+            forName: .addMeetingFromDashboard,
+            object: nil,
+            queue: .main
+        ) { [meetingListViewModel, settingsViewModel] notification in
+            if let payload = notification.object as? [String: Any],
+               let title = payload["title"] as? String {
+                let startDateStr = payload["startDate"] as? String
+                let duration = payload["duration"] as? Double ?? 3600
+                let zoomUrl = payload["zoomUrl"] as? String
+                let modeStr = payload["mode"] as? String
+
+                let startDate: Date
+                if let str = startDateStr {
+                    let formatter = ISO8601DateFormatter()
+                    startDate = formatter.date(from: str) ?? Date()
+                } else {
+                    startDate = Date()
+                }
+
+                let mode = MeetingMode(rawValue: modeStr ?? "") ?? settingsViewModel.settings.defaultMode
+
+                let meeting = Meeting(
+                    title: title,
+                    startDate: startDate,
+                    duration: duration,
+                    zoomUrl: zoomUrl,
+                    source: .manual,
+                    mode: mode
+                )
+                meetingListViewModel.addMeeting(meeting)
+            }
+        }
+
+        // Handle calendar permission request from dashboard
+        let obs7 = NotificationCenter.default.addObserver(
+            forName: .requestCalendarPermissionFromDashboard,
+            object: nil,
+            queue: .main
+        ) { [meetingListViewModel, bridge, settingsViewModel] _ in
+            Task {
+                await meetingListViewModel.requestPermissions()
+                // Send the permission result back to React
+                let appleGranted = settingsViewModel.settings.appleCalendarEnabled
+                let googleConnected = settingsViewModel.settings.googleCalendarEnabled
+                bridge.sendCalendarStatus(appleGranted: appleGranted, googleConnected: googleConnected)
+            }
+        }
+
+        bridge.notificationObservers = [obs1, obs2, obs3, obs4, obs5, obs6, obs7]
+
         // Check connection periodically
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
+        bridge.connectionTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
             if isServerRunning {
                 bridge.checkConnection()
             }
@@ -195,7 +265,7 @@ struct DashboardView: View {
     
     private func updateSettingsFromDashboard(_ payload: [String: Any]) {
         print("🔄 Updating settings from dashboard:", payload)
-        
+
         // Update individual settings
         if let autoJoinEnabled = payload["autoJoinEnabled"] as? Bool {
             if autoJoinEnabled && settingsViewModel.settings.joinOffsetMinutes == 0 {
@@ -204,23 +274,31 @@ struct DashboardView: View {
                 settingsViewModel.settings.joinOffsetMinutes = 0
             }
         }
-        
+
         if let joinLeadTime = payload["joinLeadTimeMinutes"] as? Int {
             settingsViewModel.settings.joinOffsetMinutes = joinLeadTime
         }
-        
+
         if let aiEnabled = payload["aiEnabled"] as? Bool {
             settingsViewModel.settings.incognitoEnabled = !aiEnabled
         }
-        
+
         if let modeString = payload["defaultMode"] as? String,
            let mode = MeetingMode(rawValue: modeString) {
             settingsViewModel.settings.defaultMode = mode
         }
-        
+
+        if let appleCalendarEnabled = payload["appleCalendarEnabled"] as? Bool {
+            settingsViewModel.settings.appleCalendarEnabled = appleCalendarEnabled
+        }
+
+        if let googleCalendarEnabled = payload["googleCalendarEnabled"] as? Bool {
+            settingsViewModel.settings.googleCalendarEnabled = googleCalendarEnabled
+        }
+
         // Save settings
         settingsViewModel.saveSettings()
-        
+
         print("✅ Settings updated and saved")
     }
 }

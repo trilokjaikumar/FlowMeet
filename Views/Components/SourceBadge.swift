@@ -13,7 +13,7 @@ struct SourceBadge: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: source.icon)
-            Text(source.rawValue)
+            Text(source.displayName)
         }
         .font(.caption)
         .padding(.horizontal, 6)

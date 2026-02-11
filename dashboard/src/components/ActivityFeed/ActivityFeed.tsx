@@ -1,16 +1,8 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2, Clock, AlertCircle, Calendar, FileText } from 'lucide-react';
+import { CheckCircle2, Clock, AlertCircle, Calendar, FileText, Play } from 'lucide-react';
 import { formatDistance } from 'date-fns';
+import { Activity } from '../../types';
 import './ActivityFeed.css';
-
-interface Activity {
-  id: string;
-  type: 'meeting_joined' | 'meeting_completed' | 'notes_generated' | 'meeting_scheduled' | 'error';
-  title: string;
-  description: string;
-  timestamp: string;
-  meetingId?: string;
-}
 
 interface ActivityFeedProps {
   activities: Activity[];
@@ -19,6 +11,8 @@ interface ActivityFeedProps {
 
 const ActivityIcon = ({ type }: { type: Activity['type'] }) => {
   switch (type) {
+    case 'meeting_joined':
+      return <Play size={18} />;
     case 'meeting_completed':
       return <CheckCircle2 size={18} />;
     case 'notes_generated':
@@ -34,6 +28,8 @@ const ActivityIcon = ({ type }: { type: Activity['type'] }) => {
 
 const getActivityColor = (type: Activity['type']): string => {
   switch (type) {
+    case 'meeting_joined':
+      return 'var(--color-accent-primary)';
     case 'meeting_completed':
       return 'var(--color-accent-success)';
     case 'notes_generated':

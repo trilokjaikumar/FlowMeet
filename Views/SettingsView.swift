@@ -31,6 +31,9 @@ struct SettingsView: View {
         }
         .frame(width: 600, height: 500)
         .padding()
+        .onDisappear {
+            viewModel.saveSettings()
+        }
     }
 }
 
@@ -51,7 +54,7 @@ struct GeneralSettingsView: View {
                 
                 Picker("Default mode", selection: $viewModel.settings.defaultMode) {
                     ForEach(MeetingMode.allCases, id: \.self) { mode in
-                        Text(mode.rawValue).tag(mode)
+                        Text(mode.displayName).tag(mode)
                     }
                 }
             }
@@ -113,9 +116,6 @@ struct GeneralSettingsView: View {
         } message: {
             Text(MeetingMode.incognito.warningMessage)
         }
-        .onChange(of: viewModel.settings) { _, _ in
-            viewModel.saveSettings()
-        }
     }
 }
 
@@ -164,9 +164,6 @@ struct CalendarSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .onChange(of: viewModel.settings) { _, _ in
-            viewModel.saveSettings()
-        }
     }
 }
 
@@ -180,7 +177,7 @@ struct AudioSettingsView: View {
             Section("Audio Source") {
                 Picker("Capture mode", selection: $viewModel.settings.audioSource) {
                     ForEach(AudioSource.allCases, id: \.self) { source in
-                        Text(source.rawValue).tag(source)
+                        Text(source.displayName).tag(source)
                     }
                 }
                 
@@ -229,9 +226,6 @@ struct AudioSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .onChange(of: viewModel.settings) { _, _ in
-            viewModel.saveSettings()
-        }
     }
 }
 
@@ -316,10 +310,6 @@ struct OpenAISettingsView: View {
         .formStyle(.grouped)
         .onChange(of: viewModel.tempOpenAIKey) { _, _ in
             testResult = nil
-            viewModel.saveSettings()
-        }
-        .onChange(of: viewModel.settings) { _, _ in
-            viewModel.saveSettings()
         }
     }
     

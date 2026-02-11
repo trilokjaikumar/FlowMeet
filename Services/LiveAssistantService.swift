@@ -81,26 +81,24 @@ class LiveAssistantService: ObservableObject {
     }
     
     func askQuestion(_ question: String, apiKey: String) async throws -> String {
-        guard var session = currentSession else {
+        guard currentSession != nil else {
             throw NSError(domain: "LiveAssistant", code: -1, userInfo: [NSLocalizedDescriptionKey: "No active session"])
         }
-        
-        // Add user message to history
+
+        // Add user message directly to the live session
         let userMessage = LiveAssistantMessage(role: .user, content: question)
-        session.conversationHistory.append(userMessage)
-        
-        // Build context for AI
-        let systemPrompt = buildSystemPrompt(for: session)
-        
-        // Call OpenAI
+        currentSession?.conversationHistory.append(userMessage)
+
+        // Build context from current session state
+        let systemPrompt = buildSystemPrompt(for: currentSession!)
+
+        // Call OpenAI (concurrent transcript/screen updates won't be overwritten)
         let response = try await queryOpenAI(systemPrompt: systemPrompt, userQuestion: question, apiKey: apiKey)
-        
-        // Add assistant response to history
+
+        // Add assistant response directly to the live session
         let assistantMessage = LiveAssistantMessage(role: .assistant, content: response)
-        session.conversationHistory.append(assistantMessage)
-        
-        currentSession = session
-        
+        currentSession?.conversationHistory.append(assistantMessage)
+
         return response
     }
     

@@ -65,7 +65,20 @@ export interface AppSettings {
   appleCalendarEnabled: boolean;
   googleCalendarEnabled: boolean;
   calendarSyncDays: number;
-  audioSource: 'microphone' | 'systemAudio';
+  audioSource: string;
   transcriptionModel: string;
   notesModel: string;
+  // Derived fields sent by Swift bridge
+  autoJoinEnabled?: boolean;
+  joinLeadTimeMinutes?: number;
+  aiEnabled?: boolean;
+}
+
+export interface Activity {
+  id: string;
+  type: 'meeting_joined' | 'meeting_completed' | 'notes_generated' | 'meeting_scheduled' | 'error';
+  title: string;
+  description: string;
+  timestamp: string;
+  meetingId?: string;
 }

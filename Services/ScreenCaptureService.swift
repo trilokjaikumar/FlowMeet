@@ -63,33 +63,24 @@ class ScreenCaptureService: NSObject, ObservableObject {
                 
                 let capturedImage = try await SCScreenshotManager.captureImage(contentFilter: filter, configuration: configuration)
                 
-                // Convert to NSImage for processing
-                let nsImage = NSImage(cgImage: capturedImage, size: NSSize(width: capturedImage.width, height: capturedImage.height))
-                
-                // Perform OCR on the main thread
-                await MainActor.run {
-                    self.performOCR(on: nsImage)
-                }
+                // Perform OCR on background thread, update UI on main thread
+                self.performOCR(on: capturedImage)
             } catch {
                 print("Failed to capture screen: \(error)")
             }
         }
     }
     
-    private func performOCR(on image: NSImage) {
-        guard let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
-            return
-        }
-        
+    private func performOCR(on cgImage: CGImage) {
         let request = VNRecognizeTextRequest { [weak self] request, error in
             guard let observations = request.results as? [VNRecognizedTextObservation] else {
                 return
             }
-            
+
             let recognizedText = observations.compactMap { observation in
                 observation.topCandidates(1).first?.string
             }.joined(separator: " ")
-            
+
             DispatchQueue.main.async {
                 // Only update if text changed significantly
                 if recognizedText.count > 50 && recognizedText != self?.latestScreenText {
@@ -98,10 +89,10 @@ class ScreenCaptureService: NSObject, ObservableObject {
                 }
             }
         }
-        
+
         request.recognitionLevel = .accurate
         request.usesLanguageCorrection = true
-        
+
         let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
         try? handler.perform([request])
     }

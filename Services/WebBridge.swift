@@ -11,10 +11,22 @@ import Combine
 
 class WebBridge: NSObject, ObservableObject {
     weak var webView: WKWebView?
-    
+
     @Published var isConnected = false
     @Published var lastError: String?
-    
+
+    var notificationObservers: [Any] = []
+    var connectionTimer: Timer?
+
+    deinit {
+        for observer in notificationObservers {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        notificationObservers.removeAll()
+        connectionTimer?.invalidate()
+        connectionTimer = nil
+    }
+
     // MARK: - Swift → React
     
     /// Send settings to React dashboard
@@ -113,6 +125,26 @@ class WebBridge: NSObject, ObservableObject {
         }
     }
     
+    /// Send calendar permission status to React
+    func sendCalendarStatus(appleGranted: Bool, googleConnected: Bool) {
+        guard let webView = webView else { return }
+
+        let script = """
+        if (window.flowmeetReceiveCalendarStatus) {
+            window.flowmeetReceiveCalendarStatus({
+                appleCalendarGranted: \(appleGranted),
+                googleCalendarConnected: \(googleConnected)
+            });
+        }
+        """
+
+        webView.evaluateJavaScript(script) { result, error in
+            if let error = error {
+                print("❌ Error sending calendar status: \(error)")
+            }
+        }
+    }
+
     // MARK: - Connectivity Check
     
     /// Check if the dashboard is loaded and ready
@@ -155,12 +187,21 @@ extension WebBridge: WKScriptMessageHandler {
             
         case "showMeetingDetail":
             handleShowMeetingDetail(body["payload"] as? [String: Any])
-            
+
+        case "syncCalendar":
+            handleSyncCalendar()
+
+        case "addMeeting":
+            handleAddMeeting(body["payload"] as? [String: Any])
+
+        case "requestCalendarPermission":
+            handleRequestCalendarPermission()
+
         case "ready":
             // Dashboard is loaded and ready
             isConnected = true
             print("✅ Dashboard ready signal received")
-            
+
         default:
             print("⚠️ Unknown message type:", type)
         }
@@ -214,6 +255,29 @@ extension WebBridge: WKScriptMessageHandler {
             object: meetingId
         )
     }
+    private func handleSyncCalendar() {
+        print("🔄 Sync calendar request from React")
+        NotificationCenter.default.post(
+            name: .syncCalendarFromDashboard,
+            object: nil
+        )
+    }
+
+    private func handleAddMeeting(_ payload: [String: Any]?) {
+        print("➕ Add meeting request from React")
+        NotificationCenter.default.post(
+            name: .addMeetingFromDashboard,
+            object: payload
+        )
+    }
+
+    private func handleRequestCalendarPermission() {
+        print("🔒 Calendar permission request from React")
+        NotificationCenter.default.post(
+            name: .requestCalendarPermissionFromDashboard,
+            object: nil
+        )
+    }
 }
 
 // MARK: - Notification Names
@@ -222,4 +286,7 @@ extension Notification.Name {
     static let settingsUpdatedFromDashboard = Notification.Name("settingsUpdatedFromDashboard")
     static let joinMeetingFromDashboard = Notification.Name("joinMeetingFromDashboard")
     static let showMeetingDetailFromDashboard = Notification.Name("showMeetingDetailFromDashboard")
+    static let syncCalendarFromDashboard = Notification.Name("syncCalendarFromDashboard")
+    static let addMeetingFromDashboard = Notification.Name("addMeetingFromDashboard")
+    static let requestCalendarPermissionFromDashboard = Notification.Name("requestCalendarPermissionFromDashboard")
 }

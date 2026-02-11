@@ -18,6 +18,10 @@ DerivedData/
 Pods/
 Carthage/
 
+# Dashboard dev server artifacts
+dashboard/.dev-server.log
+dashboard/.dev-server.pid
+
 # Secrets
 .env
 client_secret.json

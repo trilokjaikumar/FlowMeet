@@ -61,17 +61,20 @@ class LiveAudioCaptureService: NSObject, ObservableObject {
         }
     }
     
-    func stopListening() {
+    @discardableResult
+    func stopListening() -> String {
         recognitionTask?.cancel()
         recognitionTask = nil
         recognitionRequest = nil
         audioEngine?.stop()
         audioEngine?.inputNode.removeTap(onBus: 0)
-        
+
+        let transcript = accumulatedTranscript
         isListening = false
         accumulatedTranscript = ""
         latestTranscript = ""
         print("🎤 Stopped live audio listening")
+        return transcript
     }
     
     private func startRecognition() throws {

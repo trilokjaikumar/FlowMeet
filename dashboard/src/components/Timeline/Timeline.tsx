@@ -76,7 +76,7 @@ export const Timeline: React.FC<TimelineProps> = ({ meetings }) => {
               style={{ left: `${((hour - 8) / 10) * 100}%` }}
             >
               <span className="marker-time">
-                {hour > 12 ? `${hour - 12}pm` : `${hour}am`}
+                {hour >= 12 ? `${hour === 12 ? 12 : hour - 12}pm` : `${hour}am`}
               </span>
             </div>
           ))}

@@ -179,8 +179,8 @@ struct MeetingDetailView: View {
         # \(meeting.title)
         
         **Date:** \(meeting.startDate.formattedDateTime())
-        **Mode:** \(meeting.mode.rawValue)
-        **Source:** \(meeting.source.rawValue)
+        **Mode:** \(meeting.mode.displayName)
+        **Source:** \(meeting.source.displayName)
         
         ---
         

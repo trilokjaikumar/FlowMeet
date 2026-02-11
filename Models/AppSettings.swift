@@ -35,10 +35,14 @@ struct AppSettings: Codable, Equatable {
     }
 }
 
-enum AudioSource: String, Codable, CaseIterable {
+enum AudioSource: String, Codable, CaseIterable, Hashable {
     case microphoneOnly = "Microphone Only"
     case systemAudio = "System Audio + Mic"
-    
+
+    var displayName: String {
+        rawValue
+    }
+
     var description: String {
         switch self {
         case .microphoneOnly:

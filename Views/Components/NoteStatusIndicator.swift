@@ -16,7 +16,7 @@ struct NotesStatusIndicator: View {
                 .fill(statusColor)
                 .frame(width: 6, height: 6)
             
-            Text(status.rawValue)
+            Text(status.displayName)
         }
         .font(.caption)
         .foregroundColor(.secondary)

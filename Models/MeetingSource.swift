@@ -8,9 +8,17 @@
 import Foundation
 
 enum MeetingSource: String, Codable {
-    case appleCalendar = "Apple Calendar"
-    case googleCalendar = "Google Calendar"
-    case manual = "Manual"
+    case appleCalendar = "appleCalendar"
+    case googleCalendar = "googleCalendar"
+    case manual = "manual"
+
+    var displayName: String {
+        switch self {
+        case .appleCalendar: return "Apple Calendar"
+        case .googleCalendar: return "Google Calendar"
+        case .manual: return "Manual"
+        }
+    }
     
     var icon: String {
         switch self {

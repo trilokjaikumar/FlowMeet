@@ -83,9 +83,19 @@ struct Meeting: Identifiable, Codable, Hashable {
 }
 
 enum MeetingStatus: String, Codable {
-    case notStarted = "Not Started"
-    case inProgress = "In Progress"
-    case processing = "Processing"
-    case ready = "Ready"
-    case failed = "Failed"
+    case notStarted = "notStarted"
+    case inProgress = "inProgress"
+    case processing = "processing"
+    case ready = "ready"
+    case failed = "failed"
+
+    var displayName: String {
+        switch self {
+        case .notStarted: return "Not Started"
+        case .inProgress: return "In Progress"
+        case .processing: return "Processing"
+        case .ready: return "Ready"
+        case .failed: return "Failed"
+        }
+    }
 }
